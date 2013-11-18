@@ -8,6 +8,7 @@ var express = require('express'),
   api = require('./routes/api'),
   http = require('http'),
   path = require('path');
+  engines = require('consolidate');
 
 var app = module.exports = express();
 
@@ -19,7 +20,9 @@ var app = module.exports = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
+app.set('view options', {layout: true});
+app.engine('.html', engines.swig);
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -43,6 +46,8 @@ if (app.get('env') === 'production') {
 
 // serve index and view partials
 app.get('/', routes.index);
+app.get('/settings', routes.settings);
+app.get('/rawfeed', routes.rawfeed);
 app.get('/partials/:name', routes.partials);
 
 // JSON API

@@ -4,7 +4,15 @@
  */
 
 exports.index = function(req, res){
-  res.render('index');
+  res.render('index', {user: {name: "sarat", age: 21}});
+};
+
+exports.settings = function(req, res){
+  res.render('settings');
+};
+
+exports.rawfeed = function(req, res){
+  res.render('rawfeed');
 };
 
 exports.partials = function (req, res) {
