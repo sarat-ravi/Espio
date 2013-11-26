@@ -1,6 +1,12 @@
 
 {% extends 'index.html' %}
 
-{% block something %}
-    <p> Rawfeed lol </p>
+{% block body %}
+    <h1> Feed </h1>
+    <hr></hr>
+    <div ng-controller="FeedController" class='panel'>
+        <li ng-repeat="test in tests">
+            {% raw %}{{test.data}}{% endraw %}
+        </li>
+    </div>
 {% endblock %}
