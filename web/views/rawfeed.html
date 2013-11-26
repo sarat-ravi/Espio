@@ -2,11 +2,12 @@
 {% extends 'index.html' %}
 
 {% block body %}
-    <h1> Feed </h1>
-    <hr></hr>
-    <div ng-controller="FeedController" class='panel'>
-        <li ng-repeat="test in tests">
-            {% raw %}{{test.data}}{% endraw %}
-        </li>
+    <h1>Raw Feed </h1>
+    <div ng-controller="rawFeedController">
+        <code ng-repeat="agent in agents">
+            <div class="panel">
+                {% raw %}{{agent}}{% endraw %}
+            </div>
+        </code>
     </div>
 {% endblock %}

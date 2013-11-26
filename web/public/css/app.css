@@ -1,10 +1,29 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+h1 {
+    color: #2c6682;
+    font-weight: 300;
+}
+
+body {
+    background: #99bed0;
+}
+
+code {
+    color: #000000;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    font-weight: 300;
+    line-height: 1.8125em; 
+}
+
+.center_panel {
+    background: #b7d7e6;
+    padding: 50px;
+}
+
+.panel {
+    #background: #c3dae6;
+    background: #d3dfe6;
 }
 
 .menu:before {

@@ -2,11 +2,11 @@
 
 /* Controllers */
 
-var app = angular.module('myApp.controllers', ['firebase'])
+var app = angular.module('espio.controllers', ['firebase'])
 
-app.controller('FeedController', ['$scope', 'angularFire',
+app.controller('rawFeedController', ['$scope', 'angularFire',
     function ($scope, angularFire) {
-        var ref = new Firebase('https://sarat.firebaseio.com/test');
-        angularFire(ref, $scope, 'tests');
+        var ref = new Firebase('https://sarat.firebaseio.com/agents');
+        angularFire(ref, $scope, 'agents');
     }
 ]);

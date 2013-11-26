@@ -72,7 +72,7 @@ def create_test_data(client):
                 with a shit ton of new line characters"""
         data["url"] = firebase_url
         data["time"] = time.time() 
-        response = client.post("test/", data)
+        response = client.post("agents/", data)
         names.append(response["name"])
 
     return names
@@ -82,12 +82,13 @@ if __name__ == "__main__":
     firebase_url = "https://sarat.firebaseio.com"
     client = FirebaseClient(firebase_url=firebase_url)
 
+    #create_test_data(client)
 
     i = 0
     name = "-J9Gh0eZbNHCDz0RMKyl"
     while True:
 
-        path = "test/{name}".format(name=name)
+        path = "agents/{name}".format(name=name)
         update = {"data": "This is updated data {count}".format(count=i), "time": time.time()}
         client.update(path, update)
 

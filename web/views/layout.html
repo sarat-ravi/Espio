@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" class="no-js" lang="en">
+<html ng-app="espio" class="no-js" lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -8,6 +8,8 @@
         <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
         <link rel="stylesheet" href="/foundation/css/normalize.css" />
         <link rel="stylesheet" href="/foundation/css/foundation.css" />
+
+        <link rel="stylesheet" href="/css/app.css" />
 
         <script src="/foundation/js/vendor/custom.modernizr.js"></script>
 
@@ -32,7 +34,7 @@
                     <li class="divider"></li>
                     <li><a href="/">Home</a></li>
                     <li class="divider"></li>
-                    <li><a href="/rawfeed">Feed</a></li>
+                    <li><a href="/rawfeed">RawFeed</a></li>
                     <li class="divider"></li>
                     <li><a href="/settings">Settings</a></li>
                     <li class="divider"></li>
@@ -70,10 +72,12 @@
 
         <div class='row'>
             <div class='large-12 columns'>
-                {% block body %}
-                <h1>Espio</h1>
-                <h4 style='margin-top:-20px;' class='subheader'>import agent; agent.spy()</h4>
-                {% endblock %}
+                <div class="center_panel">
+                    {% block body %}
+                    <h1>Espio</h1>
+                    <code class='subheader'>import agent; agent.spy()</code>
+                    {% endblock %}
+                </div>
             </div>
         </div>
 
