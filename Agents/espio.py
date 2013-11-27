@@ -10,6 +10,7 @@ def main():
 
     jon = BasicAgent(id="jon", secret="pass")
     jon.record({"age": 26})
+    jon.record({"stocks": 100})
     jon.record({"height": 5.3})
 
     raj = BasicAgent(id="raj", secret="pass")
