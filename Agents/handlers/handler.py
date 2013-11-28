@@ -18,19 +18,13 @@ class Handler(object):
         """
         raise NotImplementedError("Handler.report function not implemented")
 
-    def record(self, data):
-        """
-        records the given data such that agent can later 'report'
-        """
-        raise NotImplementedError("Handler.record function not implemented")
-
     def flush(self):
         """
         oh no!!! Handler caught by enemy operatives!!
         flush() will delete all state immediately
         agent will still be functional though
         """
-        raise NotImplementedError("Handler.flush function not implemented")
+        self.subordinates = {}
 
 
 

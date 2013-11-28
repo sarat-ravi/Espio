@@ -53,19 +53,15 @@ class BasicHandler(Handler):
         return report
 
 
-    def record(self, data):
-        """
-        records the given data such that agent can later 'report'
-        """
-        raise NotImplementedError("BasicHandler.record function not implemented")
-
     def flush(self):
         """
         oh no!!! BasicHandler caught by enemy operatives!!
         flush() will delete all state immediately
-        agent will still be functional though
+        handler will still be functional though
         """
-        raise NotImplementedError("BasicHandler.flush function not implemented")
+
+        super(BasicHandler, self).flush()
+        self.subordinate_meta = {}
 
 
 
