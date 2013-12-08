@@ -1,4 +1,4 @@
-from agents import Agent
+from espio.agents import Agent
 
 
 class BasicAgent(Agent):

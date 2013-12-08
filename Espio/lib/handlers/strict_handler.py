@@ -1,4 +1,4 @@
-from handlers import Handler
+from espio.handlers import Handler
 from collections import defaultdict
 import time
 

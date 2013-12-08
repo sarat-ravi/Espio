@@ -1,5 +1,5 @@
-from handlers import Handler
-from agents import Agent
+from espio.handlers import Handler
+from espio.agents import Agent
 from collections import defaultdict
 import time
 
