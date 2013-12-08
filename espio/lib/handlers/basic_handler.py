@@ -11,6 +11,7 @@ class BasicHandler(Handler):
         secret ==> string secret, Ex: '3234tjegje9834sf', None by default
         """
         super(BasicHandler, self).__init__(id=id, secret=secret)
+        self.subordinates = {}
         self.subordinate_meta = {}
 
 
@@ -60,7 +61,7 @@ class BasicHandler(Handler):
         handler will still be functional though
         """
 
-        super(BasicHandler, self).flush()
+        self.subordinate = {}
         self.subordinate_meta = {}
 
 

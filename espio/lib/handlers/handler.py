@@ -9,7 +9,16 @@ class Handler(object):
         """
         self.id = id
         self.secret = secret
-        self.subordinates = {}
+
+
+    def add_subordinate(self, subordinate):
+        """
+        Add a subordinate, which is an instance of Agent or Handler.
+        This allows handlers to handle other handlers, who in turn
+        might handle agents
+        """
+        raise NotImplementedError("Handler.add_subordinate function not implemented")
+
 
     def report(self, secret, query=None):
         """
@@ -18,13 +27,14 @@ class Handler(object):
         """
         raise NotImplementedError("Handler.report function not implemented")
 
+
     def flush(self):
         """
         oh no!!! Handler caught by enemy operatives!!
         flush() will delete all state immediately
         agent will still be functional though
         """
-        self.subordinates = {}
+        raise NotImplementedError("Handler.flush function not implemented")
 
 
 
