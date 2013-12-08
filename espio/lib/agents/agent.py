@@ -2,15 +2,15 @@
 
 
 class Agent(object):
-    def __init__(self, id, secret):
+    def __init__(self, id, authorized_ids):
         """
         id ==> string id, Ex: '3234tjegje9834sf'
         id ==> string id, Ex: '3234tjegje9834sf', None by default
         """
         self.id = id
-        self.secret = secret
+        self.authorized_ids = authorized_ids
 
-    def report(self, secret, query=None):
+    def report(self, handler_id, query=None):
         """
         report any data agent has to whoever asks for it
         the handler who asks has established a secret with you right?

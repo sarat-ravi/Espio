@@ -1,15 +1,17 @@
 from espio.agents import Agent
+from espio.common.exceptions import AgentPermissionError
 
 
 class BasicAgent(Agent):
-    def __init__(self, id, secret=None):
-        super(BasicAgent, self).__init__(id=id, secret=secret)
+    def __init__(self, id, authorized_ids=None):
+        super(BasicAgent, self).__init__(id=id, authorized_ids=authorized_ids)
         self.data = {}
 
-    def report(self, secret=None, query=None):
+    def report(self, handler_id=None, query=None):
 
-        if not secret == self.secret:
-            raise Exception("[Agent {id}] refuses to report: Permission Denied".format(id=self.id))
+        if not (self.authorized_ids == None and handler_id == None):
+            if not handler_id in self.authorized_ids:
+                raise AgentPermissionError("[Agent {id}] refuses to report: Permission Denied".format(id=self.id))
 
         # if no query specified, return everything
         if not query: return self.data

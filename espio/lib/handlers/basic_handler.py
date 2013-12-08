@@ -1,16 +1,17 @@
 from espio.handlers import Handler
 from espio.agents import Agent
 from collections import defaultdict
+from espio.common.exceptions import HandlerPermissionError
 import time
 
 
 class BasicHandler(Handler):
-    def __init__(self, id, secret):
+    def __init__(self, id, authorized_ids):
         """
         id ==> string id, Ex: '3234tjegje9834sf'
         secret ==> string secret, Ex: '3234tjegje9834sf', None by default
         """
-        super(BasicHandler, self).__init__(id=id, secret=secret)
+        super(BasicHandler, self).__init__(id=id, authorized_ids=authorized_ids)
         self.subordinates = {}
         self.subordinate_meta = {}
 
@@ -26,7 +27,11 @@ class BasicHandler(Handler):
         self.subordinate_meta[key]["joined"] = time_added
 
 
-    def report(self, secret, query=None):
+    def report(self, handler_id, query=None):
+
+        if not (self.authorized_ids == None and handler_id == None):
+            if not handler_id in self.authorized_ids:
+                raise HandlerPermissionError("[Agent {id}] refuses to report: Permission Denied".format(id=self.id))
 
         report = {}
 

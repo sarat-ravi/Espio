@@ -22,6 +22,7 @@ def find_packages():
     packages.append("espio")
     packages.append("espio.agents")
     packages.append("espio.handlers")
+    packages.append("espio.common")
     return packages
 
 # SETUP 
