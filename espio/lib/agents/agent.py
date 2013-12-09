@@ -1,4 +1,4 @@
-
+from espio.common.exceptions import AgentPermissionError
 
 
 class Agent(object):
