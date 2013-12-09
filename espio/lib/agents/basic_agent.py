@@ -7,13 +7,6 @@ class BasicAgent(Agent):
         super(BasicAgent, self).__init__(id=id, authorized_ids=authorized_ids)
         self.data = {}
 
-    def handle_auth(self, handler_id):
-        if not (self.authorized_ids == None and handler_id == None):
-            if not handler_id in self.authorized_ids:
-                raise AgentPermissionError("[Agent {id}] refuses to report: Permission Denied".format(id=self.id))
-        return True
-
-
     def report(self, handler_id=None, query=None):
 
         self.handle_auth(handler_id=handler_id)
