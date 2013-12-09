@@ -82,8 +82,7 @@ class TestHandlers(object):
 
     def test_cia(self):
         """
-        Test if cia is only able to get information from subordinates 
-        sworn to cia
+        Test if cia is only able to get information from subordinates sworn to cia
         """
         expected_result = {}
         expected_result["paranoid_agent1"] = {"one": 1, "type": "paranoid", "ring": True}
