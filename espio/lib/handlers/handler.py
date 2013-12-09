@@ -17,7 +17,7 @@ class Handler(object):
         This allows handlers to handle other handlers, who in turn
         might handle agents
         """
-        raise NotImplementedError("Handler.add_subordinate function not implemented")
+        raise NotImplementedError("{classname}.add_subordinate function not implemented".format(classname=self.__class__.__name__))
 
 
     def report(self, handler_id, query=None):
@@ -25,7 +25,7 @@ class Handler(object):
         report any data agent has to whoever asks for it
         the handler who asks has established a secret with you right?
         """
-        raise NotImplementedError("Handler.report function not implemented")
+        raise NotImplementedError("{classname}.report function not implemented".format(classname=self.__class__.__name__))
 
 
     def flush(self):
@@ -34,7 +34,7 @@ class Handler(object):
         flush() will delete all state immediately
         agent will still be functional though
         """
-        raise NotImplementedError("Handler.flush function not implemented")
+        raise NotImplementedError("{classname}.flush function not implemented".format(classname=self.__class__.__name__))
 
 
 

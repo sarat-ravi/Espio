@@ -10,6 +10,12 @@ class Agent(object):
         self.id = id
         self.authorized_ids = authorized_ids
 
+    def handle_auth(self, handler_id):
+        if not (self.authorized_ids == None and handler_id == None):
+            if not handler_id in self.authorized_ids:
+                raise AgentPermissionError("[Agent {id}] refuses to report: Permission Denied".format(id=self.id))
+        return True
+
     def report(self, handler_id, query=None):
         """
         report any data agent has to whoever asks for it
